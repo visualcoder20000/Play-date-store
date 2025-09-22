@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>PlayDate Appstore</title>
+</head>
+<body>
+  <h1>PlayDate Appstore</h1>
+  <div id="list"></div>
+
+  <script>
+    // JSON прямо в коде
+    const apps = [
+      {
+        "name": "MikuSpin",
+        "file": "apps/MikuSpin.pdx"
+      },
+      {
+        "name": "rainblocks",
+        "file": "apps/rainblocks.pdx"
+      },
+      {
+        "name": "RootBear",
+        "file": "apps/RootBear.pdx"
+      },
+      {
+        "name": "smolitaire",
+        "file": "apps/smolitarie.pdx"
+      }
+    ];
+
+    const list = document.getElementById("list");
+    apps.forEach(app => {
+      const block = document.createElement("div");
+
+      const title = document.createElement("strong");
+      title.textContent = app.name + " ";
+
+      const link = document.createElement("a");
+      link.href = app.file;
+      link.textContent = "скачать";
+      link.setAttribute("download", "");
+
+      block.appendChild(title);
+      block.appendChild(link);
+      list.appendChild(block);
+      list.appendChild(document.createElement("br"));
+    });
+  </script>
+</body>
+</html>
